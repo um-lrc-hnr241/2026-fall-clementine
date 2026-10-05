@@ -1,10 +1,11 @@
 :root {
-  --text: #1f2933;
-  --muted: #52606d;
-  --background: #fdfcf9;
-  --accent: #1d5fa8;
-  --border: #d9d4c7;
-  --max-width: 46rem;
+  --text: #210203;
+  --muted: #4b3633;
+  --background: #f7f1e9;
+  --accent: #6d98ba;
+  --accent-dark: #315a79;
+  --border: #d3b99f;
+  --max-width: 70rem;
 }
 
 *,
@@ -15,7 +16,7 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.125rem;
   line-height: 1.6;
   color: var(--text);
@@ -37,6 +38,7 @@ main,
   justify-content: space-between;
   gap: 1rem;
   border-bottom: 1px solid var(--border);
+  background: var(--background);
 }
 
 .site-title {
@@ -50,26 +52,97 @@ main,
 }
 
 nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  margin: 0;
-  padding: 0;
+  margin: 0.5rem 0 0;
+  padding: 0.35rem 0;
   list-style: none;
+  border-top: 1px solid var(--border);
+}
+
+.site-menu {
+  position: relative;
+  min-width: 12rem;
+  color: var(--text);
+}
+
+.site-menu summary {
+  cursor: pointer;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--border);
+  background: #fffaf3;
+  font-weight: 700;
+}
+
+.site-menu summary:focus-visible,
+.site-menu a:focus-visible {
+  outline: 3px solid var(--accent-dark);
+  outline-offset: 3px;
+}
+
+.site-menu a {
+  display: block;
+  padding: 0.35rem 0.7rem;
+  color: var(--accent-dark);
+}
+
+.site-menu a[aria-current="page"] {
+  font-weight: 700;
+  text-decoration-thickness: 2px;
 }
 
 a {
-  color: var(--accent);
+  color: var(--accent-dark);
 }
 
 a:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 2px;
+  outline: 3px solid var(--accent-dark);
+  outline-offset: 3px;
 }
 
 h1 {
-  font-size: 2.25rem;
-  line-height: 1.2;
+  max-width: 15ch;
+  margin: 0.2rem 0 1.25rem;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-family: "Times New Roman", Georgia, serif;
+}
+
+.home-content {
+  padding-top: clamp(3rem, 10vh, 7rem);
+  padding-bottom: 4rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.intro {
+  max-width: 44rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  line-height: 1.5;
+}
+
+.welcome-section {
+  max-width: 42rem;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--border);
+}
+
+.text-link {
+  font-weight: 700;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
 }
 
 img,
