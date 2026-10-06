@@ -8,8 +8,12 @@ dialog.innerHTML = `
     <img src="images/Chudcartes.jpg" alt="Chudcartes, a humorous image of Descartes reimagined in the world of Westworld">
     <img src="images/Chudcartes.jpg" alt="" aria-hidden="true">
     <img src="images/Chudcartes.jpg" alt="" aria-hidden="true">
+    <img src="images/Chudcartes.jpg" alt="" aria-hidden="true">
+    <img src="images/Chudcartes.jpg" alt="" aria-hidden="true">
+    <img src="images/Chudcartes.jpg" alt="" aria-hidden="true">
+    <img src="images/Chudcartes.jpg" alt="" aria-hidden="true">
     <form>
-      <label for="philosophy-answer">STOP AND THINK! Are you thinking? Are you sure? Think about thinking! If you know you are thinking, can you prove that the thought is yours? Write it down! Really think about it!</label>
+      <label for="philosophy-answer"></label>
       <textarea id="philosophy-answer" name="answer" rows="3" required></textarea>
       <p class="dialog-status" aria-live="polite"></p>
       <button type="submit">Answer &amp; continue</button>
@@ -22,12 +26,21 @@ const form = dialog.querySelector("form");
 const answer = dialog.querySelector("textarea");
 const submitButton = dialog.querySelector("button");
 const status = dialog.querySelector(".dialog-status");
+const questionLabel = dialog.querySelector("label[for=\"philosophy-answer\"]");
+const questions = [
+  "Are you thinking? How do you know the thought is yours?",
+  "If your senses can deceive you, what can you know for certain?",
+  "What makes a mind different from a convincing imitation of one?",
+  "Could a machine doubt its own existence? What would that mean?",
+  "When you remember an experience, how can you know it happened as you recall it?"
+];
+let questionIndex = 0;
 let answered = false;
 let timer;
 
 function schedulePopup() {
-  const minimumDelay = 30 * 1000;
-  const maximumDelay = 90 * 1000;
+  const minimumDelay = 2.5 * 60 * 1000;
+  const maximumDelay = 10 * 60 * 1000;
   const delay = minimumDelay + Math.random() * (maximumDelay - minimumDelay);
   timer = window.setTimeout(() => {
     answered = false;
@@ -35,6 +48,8 @@ function schedulePopup() {
     answer.value = "";
     submitButton.textContent = "Answer & continue";
     status.textContent = "";
+    questionLabel.textContent = questions[questionIndex];
+    questionIndex = (questionIndex + 1) % questions.length;
     dialog.showModal();
     answer.focus();
   }, delay);
