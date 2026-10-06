@@ -5,6 +5,7 @@ dialog.innerHTML = `
   <div class="philosophy-dialog-content">
     <p class="eyebrow">A question from Descartes</p>
     <h2 id="philosophy-dialog-title">A brief interruption</h2>
+    <p class="chudcartes-announcement">CHUDCARTES IS HERE! Chudcartes! Please admire Chudcartes. CHUDCARTES IS HERE! Chudcartes! Please admire Chudcartes.</p>
     <img src="images/Chudcartes.jpg" alt="Chudcartes, a humorous image of Descartes reimagined in the world of Westworld">
     <img src="images/Chudcartes.jpg" alt="" aria-hidden="true">
     <img src="images/Chudcartes.jpg" alt="" aria-hidden="true">
