@@ -259,11 +259,29 @@ video {
   background: #fff200;
   color: #160020;
   box-shadow: 0 1rem 4rem rgb(0 0 0 / 75%);
+  animation: gentle-dialog-pulse 4s ease-in-out infinite;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 .philosophy-dialog::backdrop {
   background: rgb(12 0 24 / 92%);
+}
+
+@keyframes gentle-dialog-pulse {
+  0%, 100% {
+    border-color: #ff00a8;
+    box-shadow: 0 1rem 4rem rgb(0 0 0 / 75%);
+  }
+  50% {
+    border-color: #c17767;
+    box-shadow: 0 1rem 4rem rgb(0 0 0 / 55%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .philosophy-dialog {
+    animation: none;
+  }
 }
 
 .philosophy-dialog-content img {
