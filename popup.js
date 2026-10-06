@@ -5,9 +5,11 @@ dialog.innerHTML = `
   <div class="philosophy-dialog-content">
     <p class="eyebrow">A question from Descartes</p>
     <h2 id="philosophy-dialog-title">A brief interruption</h2>
-    <img src="images/Chudcartes.jpg" alt="A humorous image of Descartes reimagined in the world of Westworld">
+    <img src="images/Chudcartes.jpg" alt="Chudcartes, a humorous image of Descartes reimagined in the world of Westworld">
+    <img src="images/Chudcartes.jpg" alt="" aria-hidden="true">
+    <img src="images/Chudcartes.jpg" alt="" aria-hidden="true">
     <form>
-      <label for="philosophy-answer">If you know you are thinking, can you prove that the thought is yours?</label>
+      <label for="philosophy-answer">STOP AND THINK! Are you thinking? Are you sure? Think about thinking! If you know you are thinking, can you prove that the thought is yours? Write it down! Really think about it!</label>
       <textarea id="philosophy-answer" name="answer" rows="3" required></textarea>
       <p class="dialog-status" aria-live="polite"></p>
       <button type="submit">Answer &amp; continue</button>
@@ -24,8 +26,8 @@ let answered = false;
 let timer;
 
 function schedulePopup() {
-  const minimumDelay = 1.5 * 60 * 1000;
-  const maximumDelay = 30 * 60 * 1000;
+  const minimumDelay = 30 * 1000;
+  const maximumDelay = 90 * 1000;
   const delay = minimumDelay + Math.random() * (maximumDelay - minimumDelay);
   timer = window.setTimeout(() => {
     answered = false;
@@ -52,8 +54,8 @@ form.addEventListener("submit", (event) => {
   dialog.close();
 });
 
-dialog.addEventListener("cancel", (event) => {
-  if (!answered) event.preventDefault();
+dialog.addEventListener("cancel", () => {
+  answered = true;
 });
 
 dialog.addEventListener("close", schedulePopup);
