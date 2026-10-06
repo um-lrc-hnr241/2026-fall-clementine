@@ -246,6 +246,73 @@ video {
   font-size: 1.35rem;
 }
 
+.philosophy-dialog {
+  width: min(42rem, calc(100% - 2rem));
+  max-height: min(90vh, 52rem);
+  overflow-y: auto;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border: 3px double var(--accent-dark);
+  background: #fffaf3;
+  color: var(--text);
+  box-shadow: 0 1rem 4rem rgb(0 0 0 / 45%);
+}
+
+.philosophy-dialog::backdrop {
+  background: rgb(33 2 3 / 82%);
+}
+
+.philosophy-dialog-content img {
+  display: block;
+  max-height: 50vh;
+  margin: 1rem auto;
+  object-fit: contain;
+}
+
+.philosophy-dialog h2 {
+  margin: 0;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+}
+
+.philosophy-dialog form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.philosophy-dialog label {
+  font-weight: 700;
+}
+
+.philosophy-dialog textarea {
+  width: 100%;
+  padding: 0.65rem;
+  border: 2px solid var(--accent-dark);
+  border-radius: 0;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+}
+
+.philosophy-dialog button {
+  justify-self: start;
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--text);
+  background: var(--text);
+  color: #fffaf3;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.philosophy-dialog button:focus-visible,
+.philosophy-dialog textarea:focus-visible {
+  outline: 3px solid var(--accent-dark);
+  outline-offset: 3px;
+}
+
+.dialog-status {
+  margin: 0;
+}
+
 @media (max-width: 38rem) {
   .profile-layout {
     grid-template-columns: 1fr;
